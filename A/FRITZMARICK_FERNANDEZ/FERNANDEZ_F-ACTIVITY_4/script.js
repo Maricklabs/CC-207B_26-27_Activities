@@ -326,7 +326,8 @@ function render() {
 const VIEWS = ["home", "gear", "projects", "stack", "certifications", "consult"];
 function route() {
   const id = VIEWS.includes(location.hash.slice(1)) ? location.hash.slice(1) : "home";
-  document.title = "MarickLabs - Fullstack Developer";
+  const title = { home: "MarickLabs | Fritz Marick, Cybersecurity and Fullstack Developer", gear: "Gear - MarickLabs", projects: "Projects - MarickLabs", stack: "Stack - MarickLabs", certifications: "Certifications - MarickLabs", consult: "Consult - MarickLabs" };
+  document.title = title[id];
   $$(".view").forEach((v) => { v.hidden = v.dataset.view !== id; });
   $$("[data-nav]").forEach((a) => a.classList.toggle("active", a.dataset.nav === id));
   window.scrollTo(0, 0);
